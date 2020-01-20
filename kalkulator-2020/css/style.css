@@ -1,0 +1,166 @@
+@font-face {
+    
+    src: url(../fonts-family/LcdSolid-VPzB.ttf);
+    font-family: LCD Solid;
+    
+}   
+
+body {
+    background-color: black;
+    margin: 0;
+    height: 100vh;
+    width: 100vw;
+    font-size: 4vmin;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+div#container {
+    position: relative;
+    height: 80vmin;
+    width: 36vmin;
+    background-color: beige;
+    margin: 0 auto;
+    left: 0;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    min-height: 100px;
+    min-width: 50px;
+}
+
+input {
+    text-align: right;
+    /*    tekst pojawia się od prawej strony*/
+}
+
+input,
+button {
+    font-size: 1em;
+}
+
+div#wyswietlacz,
+input {
+    height: 6vmin;
+    width: 31vmin;
+    background-color: darkgrey;
+    top: 4vmin;
+    margin: 0 auto;
+    left: 0;
+    right: 0;
+}
+
+div#wyswietlacz {
+    position: relative;
+    
+}
+
+#wynik {
+	
+    font-family: LCD Solid, sans-serif;
+    font-size: 4vmin;
+}
+
+div#pierwszy-wiersz,
+div#drugi-wiersz,
+div#trzeci-wiersz,
+div#czwarty-wiersz,
+div#piaty-wiersz {
+    position: relative;
+    height: 10vmin;
+    width: 31vmin;
+    margin: 0 auto;
+    left: 0;
+    right: 0;
+}
+
+div#pierwszy-wiersz {
+    z-index: 3;
+}
+
+div#drugi-wiersz {
+    z-index: 2;
+}
+
+div#trzeci-wiersz {
+    z-index: 1;
+}
+
+p,
+button {
+    box-sizing: border-box;
+    display: inline-block;
+    text-align: center;
+    height: 8vmin;
+    width: 7vmin;
+    background-color: black;
+    color: aliceblue;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    float: left;
+}
+
+p.margines {
+    margin-right: 1vmin;
+}
+
+p.delete,
+p.zero {
+    margin-right: 1vmin;
+}
+
+p.delete,
+p.zero,
+button.del,
+button.zero {
+    width: 15vmin;
+}
+
+div#pierwszy-wiersz {
+    top: 3vmin;
+}
+
+div#drugi-wiersz {
+    top: -2vmin;
+}
+
+div#trzeci-wiersz {
+    top: -7vmin;
+}
+
+div#czwarty-wiersz {
+    top: -12vmin;
+}
+
+div#piaty-wiersz {
+    top: -17vmin;
+}
+
+p.del,
+button.del {
+    background-color: brown;
+}
+
+button.rowna-sie {
+    background-color: green;
+}
+
+p.kalkulator {
+    position: absolute;
+    height: 8vmin;
+    width: 12vmin;
+    background-color: rgba(189, 236, 182, 0);
+    margin: 0 auto;
+    left: 0;
+    right: 0;
+    text-align: center;
+    top: 70vmin;
+}
+
+span.kalkulator {
+    color: green;
+    font-family: Brush Script MT, Brush Script Std, cursive;   
+}

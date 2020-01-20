@@ -1,0 +1,97 @@
+* {
+
+    box-sizing: border-box;
+
+}
+
+body {
+
+    background-color: #107110;
+
+}
+
+input {
+
+    border-radius: 5px;
+    box-shadow: 1px 1px 2px;
+    height: 25px;
+
+}
+
+input[type="submit"] {
+
+    background-color: #b6bede;
+    border: 1px solid black;
+
+}
+
+input[type="text"], input[type="email"] {
+    
+    width: 170px;
+    margin-right: 3px;
+    
+}
+
+h2,
+p,
+input {
+
+    margin-bottom: 30px;
+
+}
+
+h2 {
+
+    margin-top: 10px;
+
+}
+
+section {
+
+    position: absolute;
+    height: 250px;
+    width: 500px;
+    background-color: aliceblue;
+    border: 3px solid black;
+    border-radius: 10px;
+    box-shadow: 3px 3px 10px;
+    padding: 30px;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    margin: auto;
+
+}
+
+div#logo {
+
+    position: absolute;
+    height: 100px;
+    width: 100px;
+    border: 2px solid black;
+    border-radius: 5px;
+    margin: 35px;
+    top: 0;
+    right: 0;
+    background-color: rgba(128, 128, 128, 0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /*
+    height: 100%;
+    width: 100%;
+*/
+
+}
+
+img {
+
+    color: gray;
+    font-size: 20px;
+    height: 100px;
+    width: 100px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    
+}

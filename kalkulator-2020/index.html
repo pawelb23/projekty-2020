@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Kalkulator 2020</title>
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <div id="container">
+        <div id="wyswietlacz"><input type="text" id="wynik" name="wynik" placeholder="Ready" readonly></div>
+        <!--        readonly - blokuje możliwość wpisywania dowolnego tekstu w polu tekstowym-->
+        <div id="pierwszy-wiersz">
+            <p class="delete">
+                <button class="del" onclick="dzial('del')" value="del">Del/On</button>
+            </p>
+            <p class="margines">
+                <button class="procent" onclick="dzial('%')" value="%">%</button>
+            </p>
+            <p>
+                <button class="plus" onclick="dzial('+')" value="+">+</button>
+            </p>
+        </div>
+        <div id="drugi-wiersz">
+            <p class="margines">
+                <button class="siedem" onclick="dzial('7')" value="7">7</button>
+            </p>
+            <p class="margines">
+                <button class="osiem" onclick="dzial('8')" value="8">8</button>
+            </p>
+            <p class="margines">
+                <button class="dziewiec" onclick="dzial('9')" value="9">9</button>
+            </p>
+            <p>
+                <button class="minus" onclick="dzial('-')" value="-">-</button>
+            </p>
+        </div>
+        <div id="trzeci-wiersz">
+            <p class="margines">
+                <button class="cztery" onclick="dzial('4')" value="4">4</button>
+            </p>
+            <p class="margines">
+                <button class="piec" onclick="dzial('5')" value="5">5</button>
+            </p>
+            <p class="margines">
+                <button class="szesc" onclick="dzial('6')" value="6">6</button>
+            </p>
+            <p><button class="mnozenie" onclick="dzial('*')" value="x">x</button></p>
+        </div>
+        <div id="czwarty-wiersz">
+            <p class="margines">
+                <button class="jeden" onclick="dzial('1')" value="1">1</button>
+            </p>
+            <p class="margines">
+                <button class="dwa" onclick="dzial('2')" value="2">2</button>
+            </p>
+            <p class="margines">
+                <button class="trzy" onclick="dzial('3')" value="3">3</button>
+            </p>
+            <p>
+                <button class="dzielenie" onclick="dzial('/')" value="/">/</button>
+            </p>
+        </div>
+        <div id="piaty-wiersz">
+            <p class="zero">
+                <button class="zero" onclick="dzial('0')" value="0">0</button>
+            </p>
+            <p class="margines">
+                <button class="kropka" onclick="dzial('.')" value=".">.</button>
+            </p>
+            <p class="rowna-sie">
+                <button class="rowna-sie" onclick="dzial('=')" value="=">=</button>
+            </p>
+        </div>
+        <p class="kalkulator">
+            <span class="kalkulator">Kalkulator</span>
+        </p>
+    </div>
+    <script src="js/main.js"></script>
+</body>
+
+</html>

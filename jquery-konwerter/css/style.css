@@ -1,0 +1,116 @@
+body {
+
+    background-color: #22aa7b;
+
+}
+
+#description ul li {
+
+/*    float: left;*/
+    /*    list-style: circle;*/
+    font-family: cursive, sans-serif;
+    font-weight: bold;
+    font-size: 20px;
+
+}
+
+div.inline-class {
+
+    display: inline;
+    padding: 0;
+    margin: 0;
+
+}
+
+label {
+
+    font-size: 1rem;
+
+}
+
+input,
+label {
+
+    margin: 10px;
+    height: 1.5rem;
+
+}
+
+input[type="number"] {
+
+    border-radius: 5px;
+    box-shadow: 0.2px 0.2px 0.1px;
+
+}
+
+input[type="submit"] {
+
+    background-color: rgba(96, 239, 239, 0.5);
+    border: 2px solid rgba(129, 32, 32, 0.3);
+    border-radius: 3px;
+    box-shadow: 3px 3px 3px;
+    width: 2rem;
+    padding-bottom: 5px;
+
+}
+
+input[type="submit"]:hover {
+
+    cursor: pointer;
+
+}
+
+#master-container {
+
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: antiquewhite;
+    height: 12rem;
+    width: 37rem;
+    border-radius: 5px;
+    box-shadow: 5px 5px 10px;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    margin: auto;
+/*
+    position: relative;
+    bottom: 50%;
+    transform: translateY(50%);
+    margin: 0 auto;
+*/
+
+
+}
+
+h2 {
+
+    position: absolute;
+    bottom: 60%;
+
+
+}
+
+button {
+
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin: 10px;
+
+}
+
+/* Poboczny input - potrzebny tylko do szukania kodu znaków na klawiaturze */
+/*
+
+#searchingForLetter {
+
+    display: block;
+    margin-top: 150px;
+    height: 25px;
+    width: 25px;
+
+}*/

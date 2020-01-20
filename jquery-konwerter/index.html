@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="pl-PL">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Konwerter - jquery</title>
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <div id="description">
+        <ul>
+            <li>Aby rozpocząć pracę konwertera wprowadź wartość liczbową, użyj strzałek w polu tekstowym lub naciśnij środkowy przycisk (ze strzałkami).</li>
+            <li>Aby przeliczyć stopnie naciśnij raz środkowy przycisk</li>
+            <li>Aby zmienić aktywne pole (przelicznika stopni) z Celsjusza na Fahrenheita i na odwrót dwukrotnie naciśnij przycisk ze strzałkami</li>
+        </ul>
+    </div>
+
+    <section>
+
+        <form class="converter">
+
+            <div id="master-container">
+
+                <h2>Converter temperatur</h2>
+
+                <div id="place-one" class="inline-class switching-dblclick">
+
+                    <div class="celsius-div inline-class">
+
+                        <label for="t1">Celsius</label>
+
+                        <input id="t1" class="first-position" name="temp1" type="number" step="any">
+
+                    </div>
+
+                </div>
+
+                <input type="submit" value="⇆">
+
+                <div id="place-two" class="inline-class switching-dblclick">
+
+                    <div class="fahrenheit-div inline-class">
+
+                        <label for="t2">Fahrenheit</label>
+
+                        <input id="t2" class="first-position" name="temp2" type="number" step="any" disabled="true">
+                        <!-- step="0.1" pozwala określić ilość miejsc po przecinku-->
+                        <!--       step="any" pozwala podać każdą wartość, a po naciśnięciu strzałki wartości przesuwają się o jeden-->
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </form>
+
+        <!--Poboczny div z input'em - potrzebny do szukania kodu znaków na klawiaturze-->
+<!--
+        
+        <div id="code-key">
+            
+            <input id="searchingForLetter" name="letterSearch">
+
+        </div>
+-->
+
+
+    </section>
+
+    <script src="js/jquery.min.js"></script>
+
+    <script src="js/main.js"></script>
+    <!--    -->
+</body>
+
+</html>

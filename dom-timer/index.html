@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Zadanie Timer - zjazd III</title>
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+
+    <!--    TIMER   -->
+    <section>
+
+        <div id="timer-container">
+
+            <h2 id="timer-name">Timer</h2>
+
+            <form name="timer" enabled="true">
+
+                <div id="flexbox-container">
+
+                    <label for="min" class="label-minutes">Minutes<input id="min" name="minutes" class="time" type="number" min="0" max="59"></label>
+
+
+
+                    <label for="sec" class="label-items">Seconds<input id="sec" name="seconds" class="time" type="number" min="0" max="59"></label>
+                    <!-- type="number" czyli tylko liczbowe, min i max określają minimalen i maksymalne wartości jakie mogą być użyte -->
+
+                    <input class="start-stop" type="submit" value="start">
+
+                </div>
+
+            </form>
+
+            <button class="reset">Reset</button>
+
+        </div>
+
+    </section>
+
+
+    <script src="js/main.js"></script>
+</body>
+
+</html>
