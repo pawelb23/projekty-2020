@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Rejestracja użytkowników</title>
+
+    <!--  CSS  -->
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <section id="description">
+        <p>Aby się zapisać podaj login i hasło.</p>
+        <div>
+            <ul>
+                <li>Hasło słabe - przynajmniej 4 znaki.</li>
+                <li>Hasło średnie - przynajmniej 8 znaków (w tym jedna duża litera lub cyfra).</li>
+                <li>Hasło mocne - przynajmniej 12 znaków (w tym jedna duża litera, jedna mała litera, jedna cyfra).</li>
+            </ul>
+        </div>
+    </section>
+    <!-- Przy tabelkach musi być form bo bez tego nie zadziała -->
+    
+    <section>
+    <form>
+
+        <div id="logo"><span><img src="img/free-logo-design-company.png" alt="LOGO"></span></div>
+
+        <h1>Rejestracja</h1>
+
+        <input class="text-input" type="text" name="login" placeholder="Login" required>
+
+        <!-- placeholder --- daje możliwość wpisania tekstu w inpucie jako tło np. "Hasło" -->
+        <input class="password-input" type="password" name="password" placeholder="Hasło" required>
+
+        <div id="password-power">
+
+            <div class="half-size">
+
+                <span class="password-word">Password strength:</span>
+
+            </div>
+
+            <div class="half-size div-three-colors">
+
+                <span class="three-colors"></span>
+
+                <span class="three-colors"></span>
+
+                <span class="three-colors"></span>
+
+            </div>
+
+        </div>
+
+        <div id="hidden-password-strength"><span></span></div>
+
+        <div id="div-input"><input type="submit" value="Sign up" class="sign-up"></div>
+
+    </form>
+</section>
+    <!--  jQuery i JS  -->
+
+    <script src="js/jquery-3.4.1.min.js"></script>
+
+    <script src="js/main.js"></script>
+</body>
+
+</html>
