@@ -1,102 +1,93 @@
-'use strict';
+"use strict";
 
-console.log('rejestracja użytkownika');
+console.log("rejestracja użytkownika");
 
-var sectionSubmit = $('form');
+var sectionSubmit = $("form");
 
-var loginInput = $('.text-input');
+var loginInput = $(".text-input");
 
-var passwordInput = $('.password-input');
+var passwordInput = $(".password-input");
+
+var passwAll = passwordInput.val();
 
 var signCheck = 0;
 
 function checkPassword(passwordKey) {
+  if (passwordInput.val().length > 3) {
+    $(".div-three-colors :first-child").addClass("orange-color");
 
-    if (passwordInput.val().length > 3) {
+    $("#hidden-password-strength span").text("weak");
 
-        $('.div-three-colors :first-child').addClass('orange-color');
+    $("#hidden-password-strength").css({
+      left: "53.5%"
+    });
 
-        $('#hidden-password-strength span').text('weak');
+    if (
+      passwordInput.val().length > 7 &&
+      (passwordInput.val().match(/[A-Z]/) || passwordInput.val().match(/[0-9]/))
+    ) {
+      $(".div-three-colors :nth-child(2)").addClass("yellow-color");
 
-        $('#hidden-password-strength').css({
-            'left': '53.5%'
+      $("#hidden-password-strength span").text("avarage");
+
+      $("#hidden-password-strength").css({
+        left: "66%"
+      });
+
+      if (
+        passwordInput.val().length > 11 &&
+        passwordInput.val().match(/[0-9]/) &&
+        passwordInput.val().match(/[A-Z]/) &&
+        passwordInput.val().match(/[a-z]/)
+      ) {
+        $(".div-three-colors :last-child").addClass("green-color");
+
+        $("#hidden-password-strength span").text("strong");
+
+        $("#hidden-password-strength").css({
+          left: "81.5%"
         });
-
-        if (passwordInput.val().length > 7 && (passwordInput.val().match(/[A-Z]/) || passwordInput.val().match(/[0-9]/))) {
-
-            $('.div-three-colors :nth-child(2)').addClass('yellow-color');
-
-            $('#hidden-password-strength span').text('avarage');
-
-            $('#hidden-password-strength').css({
-                'left': '66%'
-            });
-
-            if (passwordInput.val().length > 11 && passwordInput.val().match(/[0-9]/) && passwordInput.val().match(/[A-Z]/) && passwordInput.val().match(/[a-z]/)) {
-
-                $('.div-three-colors :last-child').addClass('green-color');
-
-                $('#hidden-password-strength span').text('strong');
-
-                $('#hidden-password-strength').css({
-                    'left': '81.5%'
-                });
-
-            } else {
-
-                $('.div-three-colors :last-child').removeClass('green-color');
-
-            }
-
-        } else {
-
-            $('.div-three-colors :nth-child(2)').removeClass('yellow-color');
-
-            $('.div-three-colors :last-child').removeClass('green-color');
-
-        }
-
+      } else {
+        $(".div-three-colors :last-child").removeClass("green-color");
+      }
     } else {
+      $(".div-three-colors :nth-child(2)").removeClass("yellow-color");
 
-        $('.div-three-colors :first-child').removeClass('orange-color');
-
-        $('.div-three-colors :nth-child(2)').removeClass('yellow-color');
-
-        $('.div-three-colors :last-child').removeClass('green-color');
-
-        $('#hidden-password-strength span').text('');
-
+      $(".div-three-colors :last-child").removeClass("green-color");
     }
+  } else {
+    $(".div-three-colors :first-child").removeClass("orange-color");
 
+    $(".div-three-colors :nth-child(2)").removeClass("yellow-color");
+
+    $(".div-three-colors :last-child").removeClass("green-color");
+
+    $("#hidden-password-strength span").text("");
+  }
 }
 
 sectionSubmit.on({
-    'submit': function (e) {
+  submit: function(e) {
+    e.preventDefault();
 
-        e.preventDefault();
+    var loginValue = loginInput.val();
 
-        var loginValue = loginInput.val();
+    var passwordValue = passwordInput.val();
 
-        var passwordValue = passwordInput.val();
-
-        console.log(loginValue, passwordValue);
-
-    }
-
-})
+    console.log(loginValue, passwordValue);
+  }
+});
 
 passwordInput.on({
-    'keyup': function (keyPush) { //warto używać zdarzenia keyup --- najlepiej działa
+  keyup: function(keyPush) {
+    //warto używać zdarzenia keyup --- najlepiej działa
 
-        var passwordValue = passwordInput.val();
+    var passwordValue = passwordInput.val();
 
-        if (keyPush) {
-            checkPassword($(this).val());
+    if (keyPush) {
+      checkPassword($(this).val()); //ten sam zapis --> checkPassword(passwordInput.val();
 
-            //                console.log('działa');
-
-        }
-
+      //                console.log('działa');
     }
-
-})
+  }
+});
