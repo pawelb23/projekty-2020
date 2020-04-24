@@ -1,0 +1,29 @@
+body {
+  background-color: rgba(0, 128, 0, 0.657);
+}
+
+nav {
+  span {
+    cursor: context-menu;
+    font-size: 25px;
+    font-weight: bold;
+    width: 100px;
+    padding: 10px;
+  }
+  ul {
+    li {
+      cursor: pointer;
+      margin: 35px;
+      font-size: 20px;
+      font-weight: 350;
+    }
+  }
+}
+
+// main {
+//   padding: 25px;
+// }
+
+// section {
+//   padding: 25px;
+// }

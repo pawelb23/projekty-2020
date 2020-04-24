@@ -1,14 +1,14 @@
-'use strict';
+"use strict";
 
-console.log('Konwerter Temperatur');
+console.log("Konwerter Temperatur");
 
-var converterForm = $('.converter');
+var converterForm = $(".converter");
 
-var temp1 = $(converterForm.find('#t1'));
+var temp1 = $(converterForm.find("#t1"));
 
-var temp2 = $(converterForm.find('#t2'));
+var temp2 = $(converterForm.find("#t2"));
 
-var minusEmpty = '';
+var minusEmpty = "";
 
 var submitToDblClick = converterForm.find('input[type="submit"]');
 
@@ -24,203 +24,159 @@ var submitToDblClick = converterForm.find('input[type="submit"]');
 //
 //});
 
-
 converterForm.on({
-    'submit': function (event) {
+  submit: function(event) {
+    event.preventDefault();
 
-        event.preventDefault();
+    var _temp1 = temp1.val();
 
-        var _temp1 = temp1.val();
+    var _temp2 = temp2.val();
 
-        var _temp2 = temp2.val();
+    var farenDegree = (9 / 5) * _temp1 + 32;
 
-        var farenDegree = 9 / 5 * (_temp1) + 32;
+    var celsDegree = (5 / 9) * (_temp2 - 32);
 
-        var celsDegree = 5 / 9 * ((_temp2) - 32);
+    if ($("input").hasClass("first-position")) {
+      if (temp1.val() === "") {
+        temp1.val(0);
+        temp2.val(farenDegree);
+      } else {
+        temp1.val();
 
-        if ($('input').hasClass('first-position')) {
+        var temp2ParseFl = parseFloat(farenDegree);
 
-            if (temp1.val() === '') {
+        var temp2ParseIn = parseInt(farenDegree);
 
-                temp1.val(0);
-                temp2.val(farenDegree);
+        //                console.log(temp2ParseFl);
+        //
+        //                console.log(temp2ParseIn);
 
-            } else {
+        if (temp2ParseFl === temp2ParseIn) {
+          //Porównujemy czy liczba jest całkowita czy nie
 
-                temp1.val();
-
-                var temp2ParseFl = parseFloat(farenDegree);
-
-                var temp2ParseIn = parseInt(farenDegree);
-
-                //                console.log(temp2ParseFl);
-                //
-                //                console.log(temp2ParseIn);
-
-                if (temp2ParseFl === temp2ParseIn) { //Porównujemy czy liczba jest całkowita czy nie
-
-                    var temp2NoStep = temp2.val(parseFloat(farenDegree));
-
-                } else {
-
-                    var temp2Step = temp2.val(parseFloat(farenDegree).toFixed(1)); //taki zapis pozwoli zaokrąglić nam liczbę do miejsc po przecinku (w zależności jaką liczbę wstawimy w nawias)
-
-                }
-
-            }
-
-        } else if ($('input').hasClass('second-position')) {
-
-            if (temp2.val() === '') {
-
-                temp2.val(0);
-                temp1.val(celsDegree);
-
-            } else {
-
-                temp2.val();
-
-                temp1.val(celsDegree);
-
-            }
-
+          var temp2NoStep = temp2.val(parseFloat(farenDegree));
+        } else {
+          var temp2Step = temp2.val(parseFloat(farenDegree).toFixed(1)); //taki zapis pozwoli zaokrąglić nam liczbę do miejsc po przecinku (w zależności jaką liczbę wstawimy w nawias)
         }
+      }
+    } else if ($("input").hasClass("second-position")) {
+      if (temp2.val() === "") {
+        temp2.val(0);
+        temp1.val(celsDegree);
+      } else {
+        temp2.val();
 
-    },
-    'keypress': function (keySign) {
-
-        var inputMinus = ($('input[type="number"]'));
-
-        var inputActiveInput = inputMinus.eq(0).val();
-
-        if (keySign.keyCode === 43 || keySign.keyCode === 44 || keySign.keyCode === 46 || keySign.keyCode === 101) {
-
-//            console.log('+=,.');
-
-            return false;
-
-        } else if (inputActiveInput == '0') {
-
-//            console.log('0');
-
-            inputMinus.eq(0).val('');
-
-            inputActiveInput += keySign;
-
-        } else if (inputActiveInput === '') {
-
-            if (keySign.keyCode === 45) {
-
-//                console.log('---');
-
-                inputMinus.eq(0).val('');
-
-            } else if (inputActiveInput === '') {
-
-                if (keySign.keyCode === 48) {
-
-                    //                    console.log('-0-0');
-
-                    inputMinus.eq(0).val('');
-
-                    //            inputActiveInput += keySign;
-
-                }
-
-            }
-
-        }
-
+        temp1.val(celsDegree);
+      }
     }
+  },
+  keypress: function(keySign) {
+    var inputMinus = $('input[type="number"]');
 
+    var inputActiveInput = inputMinus.eq(0).val();
+
+    if (
+      keySign.keyCode === 43 ||
+      keySign.keyCode === 44 ||
+      keySign.keyCode === 46 ||
+      keySign.keyCode === 101
+    ) {
+      //            console.log('+=,.');
+
+      return false;
+    } else if (inputActiveInput == "0") {
+      //            console.log('0');
+
+      inputMinus.eq(0).val("");
+
+      inputActiveInput += keySign;
+    } else if (inputActiveInput === "") {
+      if (keySign.keyCode === 45) {
+        //                console.log('---');
+
+        inputMinus.eq(0).val("");
+      } else if (inputActiveInput === "") {
+        if (keySign.keyCode === 48) {
+          //                    console.log('-0-0');
+
+          inputMinus.eq(0).val("");
+
+          //            inputActiveInput += keySign;
+        }
+      }
+    }
+  }
 });
 
 submitToDblClick.on({
-    'dblclick': function (event) {
+  dblclick: function(event) {
+    event.preventDefault();
 
-        event.preventDefault();
+    //        console.log('poz2');
 
-        //        console.log('poz2');
+    var masterDblClick = $("#master-container div");
 
-        var masterDblClick = $('#master-container div');
+    var classForInput = $(".inline-class input");
 
-        var classForInput = $('.inline-class input');
+    if (masterDblClick.hasClass("switching-dblclick")) {
+      $("#place-one .celsius-div").appendTo("#place-two");
 
-        if (masterDblClick.hasClass('switching-dblclick')) {
+      $("#t1").attr("disabled", "true");
 
-            $('#place-one .celsius-div').appendTo('#place-two');
+      $("#place-two .fahrenheit-div").appendTo("#place-one");
 
-            $('#t1').attr('disabled', 'true');
+      $("#t2").removeAttr("disabled", "true");
 
-            $('#place-two .fahrenheit-div').appendTo('#place-one');
+      if (temp2.val() < 0 && temp2.val() > -1) {
+        temp2.val(0);
+      }
 
-            $('#t2').removeAttr('disabled', 'true');
+      temp2.val(parseFloat(temp2.val()).toFixed(0));
 
-            if (temp2.val() < 0 && temp2.val() > -1) {
+      temp1.val(parseFloat((5 / 9) * (temp2.val() - 32)));
 
-                temp2.val(0);
+      masterDblClick.removeClass("switching-dblclick");
 
-            }
+      classForInput.removeClass("first-position");
 
-            temp2.val(parseFloat(temp2.val()).toFixed(0));
+      classForInput.addClass("second-position");
 
+      submitToDblClick.css({
+        transform: "rotate(180deg)",
+        transition: "all 0.5s"
+      });
+    } else {
+      //            console.log('poz1');
 
-            temp1.val(parseFloat(5 / 9 * (temp2.val() - 32)));
+      $("#place-one .fahrenheit-div").appendTo("#place-two");
 
-            masterDblClick.removeClass('switching-dblclick');
+      $("#t1").removeAttr("disabled", "true");
 
-            classForInput.removeClass('first-position');
+      $("#place-two .celsius-div").appendTo("#place-one");
 
-            classForInput.addClass('second-position');
+      $("#t2").attr("disabled", "true");
 
-            submitToDblClick.css({
+      temp1.val(parseFloat(temp1.val()).toFixed(0));
 
-                'transform': 'rotate(180deg)',
-                'transition': 'all 0.5s'
+      if (
+        parseFloat((9 / 5) * temp1.val() + 32) ===
+        parseInt((9 / 5) * temp1.val() + 32)
+      ) {
+        temp2.val(parseFloat((9 / 5) * temp1.val() + 32));
+      } else {
+        temp2.val(parseFloat((9 / 5) * temp1.val() + 32).toFixed(1));
+      }
 
-            })
+      masterDblClick.addClass("switching-dblclick");
 
-        } else {
+      classForInput.removeClass("second-position");
 
-            //            console.log('poz1');
+      classForInput.addClass("first-position");
 
-            $('#place-one .fahrenheit-div').appendTo('#place-two');
-
-            $('#t1').removeAttr('disabled', 'true');
-
-            $('#place-two .celsius-div').appendTo('#place-one');
-
-            $('#t2').attr('disabled', 'true');
-
-            temp1.val(parseFloat(temp1.val()).toFixed(0));
-
-            if ((parseFloat(9 / 5 * (temp1.val()) + 32)) === (parseInt(9 / 5 * (temp1.val()) + 32))) {
-
-                temp2.val(parseFloat(9 / 5 * (temp1.val()) + 32));
-
-            } else {
-
-                temp2.val(parseFloat(9 / 5 * (temp1.val()) + 32).toFixed(1));
-
-            }
-
-
-
-            masterDblClick.addClass('switching-dblclick');
-
-            classForInput.removeClass('second-position');
-
-            classForInput.addClass('first-position');
-
-            submitToDblClick.css({
-
-                'transform': 'rotate(0deg)',
-                'transition': 'all 0.5s'
-
-            })
-
-        }
-
+      submitToDblClick.css({
+        transform: "rotate(0deg)",
+        transition: "all 0.5s"
+      });
     }
-
+  }
 });

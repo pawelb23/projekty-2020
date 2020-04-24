@@ -12,7 +12,7 @@ export const nav = () => {
     </nav>`);
 
   //uzupełnij <ul> elementami <li>
-  const navBarItems = routes.map(route => navItem(route)); //navItem --> odnośnik do pliku nav-item.js//zwraca funkcję strzałkową, której parametrem jest route
+  const navBarItems = routes.map((route) => navItem(route)); //navItem --> odnośnik do pliku nav-item.js//zwraca funkcję strzałkową, której parametrem jest route
 
   navBar.find("ul").append(navBarItems); //w navBar znajduje ul i dodaje elementy navBarItems
 

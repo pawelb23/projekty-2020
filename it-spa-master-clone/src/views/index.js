@@ -3,3 +3,7 @@ export * from "./home";
 export * from "./rooms";
 export * from "./treatments";
 export * from "./oops";
+export * from "./show-bookings";
+export * from "./show-home";
+export * from "./show-rooms";
+export * from "./show-treatments";
