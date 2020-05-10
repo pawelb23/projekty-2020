@@ -6,10 +6,10 @@ export const showBookings = () => {
   if (window.location.href.match(/\/bookings$/)) {
     // const fragment = $(new DocumentFragment());
     const showAllBookings = $(
-      '<div id="bookings-contener">Bookings text!!!</div>'
+      '<div id="bookings-container">Bookings text!!!</div>'
     ); //kod utworzy nowy element div z tekstem Hello World! i doda go do elementu body strony.
 
-    $("section").append(showAllBookings);
+    $("#main-section").append(showAllBookings);
 
     // return fragment;
   }

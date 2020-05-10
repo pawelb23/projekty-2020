@@ -7,6 +7,8 @@ import $ from "jquery";
 import { Router, routes } from "./router";
 import { nav } from "./navigation/nav";
 import { Cart } from "./cart/cart.js";
+import * as allRoomsContent from "./cart/room-cart.js";
+// import { roomCart } from "./cart/room-cart.js";
 import { showBookings, showRooms, showHome, showTreatments } from "./views";
 // import { showHome } from "./views/show-Home.js";
 // import { showTreatments } from "./views/show-treatments.js";
@@ -15,10 +17,12 @@ import { showBookings, showRooms, showHome, showTreatments } from "./views";
 console.log(`Clone`);
 console.log("");
 
+// const roomClass = new RoomClass();
+
 const main = $("main");
 console.log(main);
 
-const cart = new Cart(); //moje
+// const cart = new Cart(); //moje
 
 const router = new Router(routes); //router.js
 // console.log(router); //moje
@@ -31,6 +35,9 @@ router.mount(main); //router.js ---> po prostu wywołujemy metodę .mount() na r
 
 router.init(); //router.js ---> po prostu wywołujemy metodę init() na router z pliku router.js class Router
 //przy uruchomieniu strony pierwszy raz nawigujemy do ścieżki z paska adresu
+
+//----------------
+
 // console.log(router.mount(main));
 
 // console.log(router.init());
@@ -41,38 +48,100 @@ router.init(); //router.js ---> po prostu wywołujemy metodę init() na router z
 // console.log(newHref);
 console.log(window.location.origin); //Początkowy adres strony
 
+//----podstrony
+
 showHome();
 showRooms();
 showTreatments();
 showBookings();
 
-$(window).on("click", () => {
-  if (
-    window.location.href.match(/\/$/) &&
-    window.location.href.length - 1 === window.location.origin.length
-  ) {
-    // console.log("działa");
-    //(window.location.href.match(/\/{1}$/))
-    $("section").empty();
-    return showHome();
-  } else if (window.location.href.match(/\/rooms$/)) {
-    $("section").empty();
-    return showRooms();
-  } else if (window.location.href.match(/\/treatments$/)) {
-    $("section").empty();
-    // let newHref = window.location.href;
-    // console.log(newHref);
-    // if (newHref !== oldHref) {
-    return showTreatments();
-  } else if (window.location.href.match(/\/bookings$/)) {
-    $("section").empty();
-    return showBookings();
-  } else {
-    // $("section").empty();
-    return $("section").empty();
-  }
-  // console.log($("section"));
+//---dodawanie i odejmowanie osób
+
+allRoomsContent.roomId1Add();
+allRoomsContent.roomId2Add();
+allRoomsContent.roomId3Add();
+allRoomsContent.roomId4Add();
+
+allRoomsContent.roomId1Remove();
+allRoomsContent.roomId2Remove();
+allRoomsContent.roomId3Remove();
+allRoomsContent.roomId4Remove();
+
+//-------------
+
+$(".text-light").on({
+  click: () => {
+    if (
+      window.location.href.match(/\/$/) &&
+      window.location.href.length - 1 === window.location.origin.length
+    ) {
+      // console.log("działa");
+      //(window.location.href.match(/\/{1}$/))
+      $("#main-section").empty();
+      showHome();
+    } else if (window.location.href.match(/\/rooms$/)) {
+      $("#main-section").empty();
+      showRooms();
+
+      // allRoomsContent.addInsideRoomAddId1();
+
+      allRoomsContent.roomId1Add();
+      allRoomsContent.roomId2Add();
+      allRoomsContent.roomId3Add();
+      allRoomsContent.roomId4Add();
+    } else if (window.location.href.match(/\/treatments$/)) {
+      $("#main-section").empty();
+      // let newHref = window.location.href;
+      // console.log(newHref);
+      // if (newHref !== oldHref) {
+      showTreatments();
+    } else if (window.location.href.match(/\/bookings$/)) {
+      $("#main-section").empty();
+      showBookings();
+    } else {
+      $("#main-section").empty();
+      // return $("#main-section").empty();
+    }
+    // console.log($("#main-section"));
+  },
 });
+
+//--------------
+
+// $(".button-add-id1").click((e) => {
+//   e.stopPropagation();
+//   console.log("xxxxxxxxxxxxxxxxxxxxxxxxx");
+// });
+
+// if (
+//   window.location.href.match(/\/$/) &&
+//   window.location.href.length - 1 === window.location.origin.length
+// ) {
+//   // console.log("działa");
+//   //(window.location.href.match(/\/{1}$/))
+//   $("#main-section").empty();
+//   showHome();
+// } else
+// if (window.location.href !== window.location.href.match(/\/rooms$/)) {
+//   $(".not-empty").empty();
+//   console.log("działa");
+// }
+// else if (window.location.href.match(/\/treatments$/)) {
+//   $("#main-section").empty();
+//   // let newHref = window.location.href;
+//   // console.log(newHref);
+//   // if (newHref !== oldHref) {
+//   showTreatments();
+// } else if (window.location.href.match(/\/bookings$/)) {
+//   $("#main-section").empty();
+//   showBookings();
+// } else {
+//   $("#main-section").empty();
+//   // return $("#main-section").empty();
+// }
+// console.log($("#main-section"));
+
+//------------
 
 console.log(document.cookie);
 
@@ -119,10 +188,92 @@ console.log(database.rooms[0].name);
 
 //----------
 
-// cart.add();
+// cart.add(database.rooms[0]);
 
-// cart.setItSpaCart();
+// database.rooms[0].beds = 5;
+
+// cart.add(database.rooms[0]);
+
+// cart.add({ name: "value" });
+
+// cart.remove(database.rooms[0]);
+
+// cart.setItSpaCart(database.rooms[0]);
+
+// cart.setItSpaCart("stach");
+
+// cart.setItSpaCart("aar55:<JJ");
+
+// console.log(document.cookie);
 
 //----------
 
+// console.log($("room-id2"));
+
 // console.log(cart.add());
+
+// const databaseStringify = JSON.stringify(database);
+
+// const databaseParse = JSON.parse(databaseStringify);
+
+// console.log(databaseParse);
+
+// const databaseStringify = JSON.stringify(database);
+
+// const databaseParse = JSON.parse(databaseStringify);
+
+// console.log(databaseParse);
+
+console.log($("#main-section div div.room-id4 .one-room-info").text());
+
+fetch("http://localhost:1234").then((response) => {
+  console.log(response.status);
+  console.log($("#main-section div"));
+});
+
+console.log(allRoomsContent.roomOneWithChanging);
+
+// $(window).on("click", () => {
+//   if (
+//     window.location.href.match(/\/$/) &&
+//     window.location.href.length - 1 === window.location.origin.length
+//   ) {
+//     // console.log("działa");
+//     //(window.location.href.match(/\/{1}$/))
+//     return showHome();
+//   } else if (window.location.href.match(/\/rooms$/)) {
+//     allRoomsContent.roomId1Add();
+//   }
+//   //  else if (window.location.href.match(/\/treatments$/)) {
+//   //   $("#main-section").empty();
+//   //   // let newHref = window.location.href;
+//   //   // console.log(newHref);
+//   //   // if (newHref !== oldHref) {
+//   //   return showTreatments();
+//   // } else if (window.location.href.match(/\/bookings$/)) {
+//   //   // $("#main-section").empty();
+//   //   return showBookings();
+//   // } else {
+//   //   $("#main-section").empty();
+//   //   // return $("#main-section").empty();
+//   // }
+//   // // console.log($("#main-section"));
+// });
+
+// console.log($("#info-section div:empty").length);
+
+// $("#info-section").unload((e) => {
+//   e.stopPropagation();
+//   const addText = $("<div>ABC</div>");
+
+//   $("#info-section").append(addText);
+// });
+
+const divSectionText = $(window).on("beforeunload", function () {
+  e.stopPropagation();
+  const addText = $("<div>ABC</div>");
+
+  $("#info-section").append(addText);
+});
+
+divSectionText;

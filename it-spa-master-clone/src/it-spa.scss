@@ -1,23 +1,217 @@
+@import "./scss/mixins.scss";
+@import url("https://fonts.googleapis.com/css?family=Abril+Fatface&display=swap");
+
+* {
+  font-family: "Abril Fatface", cursive;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-size: 20px;
+}
+
 body {
   background-color: rgba(0, 128, 0, 0.657);
+  height: 100%; //konieczne do zaciemnienia
+}
+
+html {
+  //zapewnia wraz z body {height: 100%} nałożenie zaciemnienia całej strony
+  min-height: 100%; //konieczne do zaciemnienia
+  position: relative; //konieczne do zaciemnienia
 }
 
 nav {
-  span {
-    cursor: context-menu;
+  // font-size: 25px;
+  .navbar-brand {
+    // cursor: context-menu;
     font-size: 25px;
     font-weight: bold;
-    width: 100px;
+    width: 120px;
     padding: 10px;
+    border: dashed rgba(0, 128, 0, 0.5) 2px;
   }
   ul {
     li {
       cursor: pointer;
       margin: 35px;
-      font-size: 20px;
-      font-weight: 350;
+      .text-light {
+        font-size: 25px;
+        font-weight: 350;
+        padding: 20px;
+      }
     }
   }
+}
+
+main {
+  // cursor: context-menu;
+  text-align: center;
+  h1 {
+    padding-top: 25px;
+  }
+  p {
+    padding: 25px;
+  }
+}
+
+section {
+  cursor: pointer;
+  text-align: center;
+  #home-container {
+    height: 475px;
+    .picture {
+      background-image: url(./assets/pictures/flower-spa.jpg);
+      position: absolute;
+      border: solid rgb(94, 209, 94) 5px;
+      box-shadow: 5px 5px 25px black;
+      width: 1350px;
+      height: 500px;
+      background-size: 1350px 500px;
+      top: 300px;
+      left: 0;
+      right: 0;
+      margin: auto;
+      .span-home {
+        font-size: 75px;
+        color: rgba(255, 255, 255, 0.85);
+        margin-top: 75px;
+        text-shadow: 10px 5px 10px black;
+      }
+    }
+  }
+  #rooms-container {
+    @include section-flex-settings;
+    cursor: context-menu;
+    .room {
+      @include inside-divs-in-section-flex;
+      @include section-flex-settings;
+
+      .one-room-info {
+        cursor: auto;
+        @include border-for-treatment-and-room;
+        .room-key {
+          font-weight: bold;
+        }
+        .room-value {
+          @include value-in-room-and-treatment;
+        }
+      }
+      .add-and-remove {
+        @include border-for-treatment-and-room;
+        @include center-position-for-buttons-and-inputs;
+        button {
+          @include button-add-remove-style;
+        }
+        .all-add-buttons-hover {
+          &:hover {
+            @include buttons-hover;
+          }
+        }
+        .all-remove-buttons-hover {
+          &:hover {
+            @include buttons-hover;
+          }
+        }
+        .not-empty {
+          z-index: 2;
+          position: absolute;
+          margin-top: 45px;
+          .person-form {
+            background-color: rgba(0, 0, 0, 0.15);
+            margin-top: 50px;
+            .person-input {
+              height: 25px;
+              width: 50px;
+              background-color: rgba(246, 233, 233, 0.85);
+              border-radius: 5px;
+              font-size: 15px;
+            }
+            .label-warning {
+              font-size: 15px;
+              margin: 0;
+            }
+            .span-for-label-warning {
+              font-size: 15px;
+              color: rgb(134, 24, 24);
+            }
+            .add-person-button {
+              background-color: rgba(246, 233, 233, 0.85);
+              @include button-inside-input;
+            }
+            .remove-person-button {
+              background-color: rgba(209, 196, 196, 0.85);
+              @include button-inside-input;
+            }
+            button {
+              &:hover {
+                @include buttons-hover;
+              }
+            }
+          }
+          .form-shadow {
+            &:hover {
+              @include hover-white-shadow-without-border;
+            }
+          }
+        }
+      }
+    }
+    .room-hover-shadow {
+      &:hover {
+        @include hover-white-shadow-with-border;
+      }
+    }
+  }
+  #treatments-container {
+    @include section-flex-settings;
+    cursor: context-menu;
+    .treatment {
+      @include inside-divs-in-section-flex;
+      @include section-flex-settings;
+      .one-treatment-info {
+        cursor: auto;
+        @include border-for-treatment-and-room;
+        .treatment-key {
+          font-weight: bold;
+        }
+        .treatment-value {
+          @include value-in-room-and-treatment;
+        }
+      }
+      .add-and-remove {
+        @include border-for-treatment-and-room;
+        @include center-position-for-buttons-and-inputs;
+        button {
+          @include button-add-remove-style;
+        }
+        .all-buttons-add-treatments {
+          &:hover {
+            @include buttons-hover;
+          }
+        }
+      }
+    }
+    .treatment-hover-shadow {
+      &:hover {
+        @include hover-white-shadow-with-border;
+      }
+    }
+  }
+}
+
+.text-muted {
+  text-align: center;
+  padding: 50px;
+  bottom: 5px;
+}
+
+.shadow-div {
+  z-index: 1;
+  position: absolute;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.25);
 }
 
 // main {
