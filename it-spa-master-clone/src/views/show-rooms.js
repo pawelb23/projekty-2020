@@ -1,6 +1,9 @@
 import database from "../../database.json";
 import $ from "jquery";
+import * as allRoomsContent from "../cart/room-cart.js";
 // import JSON from "../database.json";
+
+export let actuallGuestsNumber = 0;
 
 export const showRooms = () => {
   if (window.location.href.match(/\/rooms$/)) {
@@ -15,6 +18,10 @@ export const showRooms = () => {
     const databaseParse = JSON.parse(databaseStringify);
 
     console.log(databaseParse);
+
+    //----------
+
+    // All guests
 
     // const roomsInformations = database.rooms.filter((room) => {
     //   console.log(room);
@@ -44,8 +51,8 @@ export const showRooms = () => {
 
       oneRoomInfo.html(`<span class="room-key">Nazwa:</span> <span class="room-value">${database.rooms[i].name}</span><br>
       <span class="room-key">Ilość łóżek:</span> <span class="room-value">${database.rooms[i].beds}</span><br>
-      <span class="room-key">Ilość miejsc:</span> <span class="room-value">${database.rooms[i].guests}</span><br>
-      <span class="room-key">Cena:</span> <span class="room-value">${database.rooms[i].price}</span>`);
+      <span class="room-key">Ilość miejsc:</span> <span class="room-value room-guests-value${database.rooms[i].id}">${database.rooms[i].guests}</span><br>
+      <span class="room-key">Cena (za jedną osobę):</span> <span class="room-value">${database.rooms[i].price}</span>`);
 
       const addMinusRoom = $(
         `<div class="add-and-remove add-remove-room-id${database.rooms[i].id}"></div>`
@@ -60,19 +67,18 @@ export const showRooms = () => {
       addMinusRoom.append(buttonRoom);
 
       $(".all-buttons-remove-rooms").attr("disabled", true);
+
+      $(".room-guests-value1").text(allRoomsContent.roomOneWithChanging.guests);
+
+      $(".room-guests-value2").text(allRoomsContent.roomTwoWithChanging.guests);
+
+      $(".room-guests-value3").text(
+        allRoomsContent.roomThreeWithChanging.guests
+      );
+
+      $(".room-guests-value4").text(
+        allRoomsContent.roomFourWithChanging.guests
+      );
     }
-
-    // showAllRooms.text(databaseParse.rooms[0].id);
-    // showAllRooms.text(
-
-    // );
-    // console.log("działa");
-    // return fragment;
   }
 };
-
-// JSON.stringify(database);
-
-// console.log()
-
-// console.log(database.rooms[0].name);

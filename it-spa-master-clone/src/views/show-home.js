@@ -41,3 +41,10 @@ export const showHome = () => {
 //   console.log(response.status);
 //   console.log($("section div"));
 // });
+
+//-------------
+//-------------
+
+// registration
+
+//login

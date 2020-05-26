@@ -8,9 +8,9 @@ var loginInput = $(".text-input");
 
 var passwordInput = $(".password-input");
 
-var passwAll = passwordInput.val();
+// var passwAll = passwordInput.val();
 
-var signCheck = 0;
+// var signCheck = 0;
 
 function checkPassword(passwordKey) {
   if (passwordInput.val().length > 3) {
@@ -19,7 +19,7 @@ function checkPassword(passwordKey) {
     $("#hidden-password-strength span").text("weak");
 
     $("#hidden-password-strength").css({
-      left: "53.5%"
+      left: "53.5%",
     });
 
     if (
@@ -31,7 +31,7 @@ function checkPassword(passwordKey) {
       $("#hidden-password-strength span").text("avarage");
 
       $("#hidden-password-strength").css({
-        left: "66%"
+        left: "66%",
       });
 
       if (
@@ -45,7 +45,7 @@ function checkPassword(passwordKey) {
         $("#hidden-password-strength span").text("strong");
 
         $("#hidden-password-strength").css({
-          left: "81.5%"
+          left: "81.5%",
         });
       } else {
         $(".div-three-colors :last-child").removeClass("green-color");
@@ -67,7 +67,7 @@ function checkPassword(passwordKey) {
 }
 
 sectionSubmit.on({
-  submit: function(e) {
+  submit: function (e) {
     e.preventDefault();
 
     var loginValue = loginInput.val();
@@ -75,11 +75,11 @@ sectionSubmit.on({
     var passwordValue = passwordInput.val();
 
     console.log(loginValue, passwordValue);
-  }
+  },
 });
 
 passwordInput.on({
-  keyup: function(keyPush) {
+  keyup: function (keyPush) {
     //warto używać zdarzenia keyup --- najlepiej działa
 
     var passwordValue = passwordInput.val();
@@ -89,5 +89,5 @@ passwordInput.on({
 
       //                console.log('działa');
     }
-  }
+  },
 });

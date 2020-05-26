@@ -8,14 +8,21 @@ import { Router, routes } from "./router";
 import { nav } from "./navigation/nav";
 import { Cart } from "./cart/cart.js";
 import * as allRoomsContent from "./cart/room-cart.js";
+import * as allTreatmentsContent from "./cart/treatments-cart.js";
+
 // import { roomCart } from "./cart/room-cart.js";
 import { showBookings, showRooms, showHome, showTreatments } from "./views";
 // import { showHome } from "./views/show-Home.js";
 // import { showTreatments } from "./views/show-treatments.js";
 // import { showBookings } from "./views/show-bookings.js";
 
-console.log(`Clone`);
 console.log("");
+
+console.log("działa");
+
+database.users.push(JSON.stringify({ a: "hej" }));
+
+console.log(database.users[0]);
 
 // const roomClass = new RoomClass();
 
@@ -48,14 +55,27 @@ router.init(); //router.js ---> po prostu wywołujemy metodę init() na router z
 // console.log(newHref);
 console.log(window.location.origin); //Początkowy adres strony
 
-//----podstrony
+//-----------------
+
+// Podstrony
+
+//----------------
+
+// Rooms
+
+// Przy przaładowaniu strony wczytujemy wartości Rooms do kosza
+
+allRoomsContent.findCookieRoom1();
+allRoomsContent.findCookieRoom2();
+allRoomsContent.findCookieRoom3();
+allRoomsContent.findCookieRoom4();
 
 showHome();
 showRooms();
 showTreatments();
 showBookings();
 
-//---dodawanie i odejmowanie osób
+//---dodawanie i odejmowanie osób (Rooms)
 
 allRoomsContent.roomId1Add();
 allRoomsContent.roomId2Add();
@@ -67,7 +87,57 @@ allRoomsContent.roomId2Remove();
 allRoomsContent.roomId3Remove();
 allRoomsContent.roomId4Remove();
 
+//-----------
+
+allRoomsContent.room1ReloadInfo(); //info kosz grafika
+allRoomsContent.room2ReloadInfo(); //info kosz grafika
+allRoomsContent.room3ReloadInfo(); //info kosz grafika
+allRoomsContent.room4ReloadInfo(); //info kosz grafika
+
+allRoomsContent.allZeroRoomsDisabled(); //wyłączenia przy zerowej liczbie osób w database
+
+//------------
+
+allRoomsContent.allRoomsDisablesAndHovers(); //wszelkie hovery, wyłączenia przy wczytaniu strony
+
+//------------
+
+//Podstrony Treatments
+
+//------------
+// Przy przaładowaniu strony wczytujemy wartości Rooms do kosza
+
+allTreatmentsContent.findCookieTreatment1();
+allTreatmentsContent.findCookieTreatment2();
+allTreatmentsContent.findCookieTreatment3();
+allTreatmentsContent.findCookieTreatment4();
+allTreatmentsContent.findCookieTreatment5();
+allTreatmentsContent.findCookieTreatment6();
+allTreatmentsContent.findCookieTreatment7();
+
 //-------------
+
+//---dodawanie i odejmowanie osób (Treatments)
+
+allTreatmentsContent.addTreatment1();
+allTreatmentsContent.addTreatment2();
+allTreatmentsContent.addTreatment3();
+allTreatmentsContent.addTreatment4();
+allTreatmentsContent.addTreatment5();
+allTreatmentsContent.addTreatment6();
+allTreatmentsContent.addTreatment7();
+
+allTreatmentsContent.removeTreatment1();
+allTreatmentsContent.removeTreatment2();
+allTreatmentsContent.removeTreatment3();
+allTreatmentsContent.removeTreatment4();
+allTreatmentsContent.removeTreatment5();
+allTreatmentsContent.removeTreatment6();
+allTreatmentsContent.removeTreatment7();
+
+//-------------
+
+// Zdarzenia dla podstron
 
 $(".text-light").on({
   click: () => {
@@ -83,18 +153,44 @@ $(".text-light").on({
       $("#main-section").empty();
       showRooms();
 
+      // window.location.reload(false);
+
       // allRoomsContent.addInsideRoomAddId1();
 
       allRoomsContent.roomId1Add();
       allRoomsContent.roomId2Add();
       allRoomsContent.roomId3Add();
       allRoomsContent.roomId4Add();
+
+      allRoomsContent.roomId1Remove();
+      allRoomsContent.roomId2Remove();
+      allRoomsContent.roomId3Remove();
+      allRoomsContent.roomId4Remove();
+
+      allRoomsContent.allZeroRoomsDisabled(); //wyłączenia przy zerowej liczbie osób w database (w Rooms)
+
+      allRoomsContent.allRoomsDisablesAndHovers(); //wszelkie hovery, wyłączenia na przy wczytaniu strony (w Rooms)
     } else if (window.location.href.match(/\/treatments$/)) {
       $("#main-section").empty();
-      // let newHref = window.location.href;
-      // console.log(newHref);
-      // if (newHref !== oldHref) {
       showTreatments();
+
+      allTreatmentsContent.addTreatment1();
+      allTreatmentsContent.addTreatment2();
+      allTreatmentsContent.addTreatment3();
+      allTreatmentsContent.addTreatment4();
+      allTreatmentsContent.addTreatment5();
+      allTreatmentsContent.addTreatment6();
+      allTreatmentsContent.addTreatment7();
+
+      allTreatmentsContent.removeTreatment1();
+      allTreatmentsContent.removeTreatment2();
+      allTreatmentsContent.removeTreatment3();
+      allTreatmentsContent.removeTreatment4();
+      allTreatmentsContent.removeTreatment5();
+      allTreatmentsContent.removeTreatment6();
+      allTreatmentsContent.removeTreatment7();
+
+      allTreatmentsContent.allstateTreatmentsInfo(); //ifnormacje przy zmianie zakładki co dodano co nie (do hoverów i aktywnych, nieaktywnych przycisków)
     } else if (window.location.href.match(/\/bookings$/)) {
       $("#main-section").empty();
       showBookings();
@@ -168,15 +264,15 @@ console.log(document);
 
 // fetch(database)
 //   .then((response) => {
-//     console.log(response);
+//     console.log("działa");
 //     return response.json();
 //   })
-//   .then((answer) => console.log(answer));
-// const jsonInfo = $.getJSON(
-//   "C/:UsersPBDesktop/repo-git/projekty-2020/it-spa-master-clone/database.json"
-// );
+// //   .then((answer) => console.log(answer));
+// // const jsonInfo = $.getJSON(
+// //   "C/:UsersPBDesktop/repo-git/projekty-2020/it-spa-master-clone/database.json"
+// // );
 
-console.log(database.rooms[0].name);
+// console.log(database.rooms[0].name);
 
 // console.log(JSON.parse(jsonInfo));
 
@@ -261,19 +357,22 @@ console.log(allRoomsContent.roomOneWithChanging);
 // });
 
 // console.log($("#info-section div:empty").length);
+// $(document).ready(() => {
+//   $("#info-section").unload(() => {
+//     // // e.stopPropagation();
+//     // const addText = $("<div>ABC</div>");
 
-// $("#info-section").unload((e) => {
+//     // $("#info-section").append(addText);
+//     console.log("działa");
+//   });
+// });
+// $(window).on("beforeunload", function () {
 //   e.stopPropagation();
 //   const addText = $("<div>ABC</div>");
+
+//   console.log("działa");
 
 //   $("#info-section").append(addText);
 // });
 
-const divSectionText = $(window).on("beforeunload", function () {
-  e.stopPropagation();
-  const addText = $("<div>ABC</div>");
-
-  $("#info-section").append(addText);
-});
-
-divSectionText;
+// divSectionText;

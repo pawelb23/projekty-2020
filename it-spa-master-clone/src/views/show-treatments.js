@@ -61,7 +61,7 @@ export const showTreatments = () => {
       showOneTreatment.append(addMinusTreatment);
 
       const buttonTreatment = $(
-        `<button class="all-buttons-add-treatments button-add-treatment${database.treatments[i].id}">Dodaj</button><button class="all-buttons-remove-treatments button-remove-treatment${database.treatments[i].id}">Usuń</button>`
+        `<button class="all-buttons-add-treatments button-add-treatment${database.treatments[i].id} all-add-buttons-treatments-hover">Dodaj</button><button class="all-buttons-remove-treatments button-remove-treatment${database.treatments[i].id}">Usuń</button>`
       );
 
       addMinusTreatment.append(buttonTreatment);

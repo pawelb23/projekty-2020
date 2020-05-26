@@ -44,7 +44,7 @@ nav {
 }
 
 main {
-  // cursor: context-menu;
+  margin-top: 30px;
   text-align: center;
   h1 {
     padding-top: 25px;
@@ -54,9 +54,10 @@ main {
   }
 }
 
-section {
+#main-section {
   cursor: pointer;
   text-align: center;
+  margin-top: 50px;
   #home-container {
     height: 475px;
     .picture {
@@ -67,7 +68,7 @@ section {
       width: 1350px;
       height: 500px;
       background-size: 1350px 500px;
-      top: 300px;
+      top: 375px;
       left: 0;
       right: 0;
       margin: auto;
@@ -184,7 +185,12 @@ section {
         button {
           @include button-add-remove-style;
         }
-        .all-buttons-add-treatments {
+        .all-add-buttons-treatments-hover {
+          &:hover {
+            @include buttons-hover;
+          }
+        }
+        .all-remove-buttons-treatments-hover {
           &:hover {
             @include buttons-hover;
           }
@@ -197,6 +203,43 @@ section {
       }
     }
   }
+}
+
+#info-section {
+  max-width: 500px;
+  top: 100px;
+  left: 0;
+  position: absolute;
+  .info-main-heading {
+    color: rgb(155, 41, 41);
+    text-align: center;
+  }
+  .div-for-all-info {
+    .hidden-border-rooms-in-info {
+      @include info-div-settings;
+      div {
+        font-size: 12px;
+      }
+    }
+    .hidden-border-treatments-in-info {
+      @include info-div-settings;
+      div {
+        font-size: 12px;
+      }
+    }
+  }
+  .hidden-class-in-div {
+    display: flex;
+    justify-content: center;
+    flex-flow: row wrap;
+  }
+}
+.main-info-in-section {
+  margin: 35px;
+  padding: 10px;
+  border: dotted rgba(124, 53, 53, 0.575) 3px;
+  // text-align: center;
+  display: inline-block;
 }
 
 .text-muted {
