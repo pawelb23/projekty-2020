@@ -6,61 +6,28 @@ import "./it-spa.scss";
 import $ from "jquery";
 import { Router, routes } from "./router";
 import { nav } from "./navigation/nav";
+import { Cart } from "./cart/cart.js";
 import * as allRoomsContent from "./cart/room-cart.js";
 import * as allTreatmentsContent from "./cart/treatments-cart.js";
 
-import {
-  showBookings,
-  // currentArrivalDepartureDateCookie,
-  arrivalClick,
-  cancelArrivalClick,
-  departureClick,
-  cancelDepartureClick,
-  currentArrivalDepartureDateInfo,
-  summaryButton,
-  showRooms,
-  actuallGuestsInfo,
-  showHome,
-  showTreatments,
-  showRegistrationForm,
-  findCookieLogin,
-  registrationLoginHoversOff,
-  loginRemove,
-  showLoginForm,
-} from "./views";
-import { Cart } from "./cart/cart.js";
 // import { roomCart } from "./cart/room-cart.js";
+import { showBookings, showRooms, showHome, showTreatments } from "./views";
 // import { showHome } from "./views/show-Home.js";
 // import { showTreatments } from "./views/show-treatments.js";
 // import { showBookings } from "./views/show-bookings.js";
 
-// database.users.push(infoPush);
+console.log("");
+
+console.log("działa");
+
+database.users.push(JSON.stringify({ a: "hej" }));
 
 console.log(database.users[0]);
-
-// console.log(database.users);
-
-// var infoPush = JSON.stringify({ b: "hej" });
-
-// var finished = () => {
-//   console.log("działa");
-// };
-
-// var fs = require("file-system");
-
-// fs.appendFile("../database.json", infoPush, finished());
-
-// var words = fs.readFile("../database.json");
-
-// console.log(JSON.parse(words));
-
-// fs.writeFile("../database.json", infoPush, finished);
-
-// database.users.push(infoPush);
 
 // const roomClass = new RoomClass();
 
 const main = $("main");
+console.log(main);
 
 // const cart = new Cart(); //moje
 
@@ -92,22 +59,7 @@ console.log(window.location.origin); //Początkowy adres strony
 
 // Podstrony
 
-showHome(); //Podstrona
-showRooms();
-showTreatments(); //Podstrona (musi być przed findCookieTreatment)
-showBookings(); //Podstrona
-
 //----------------
-
-//Home
-
-showRegistrationForm();
-showLoginForm();
-
-findCookieLogin();
-loginRemove();
-
-//-----------
 
 // Rooms
 
@@ -118,9 +70,10 @@ allRoomsContent.findCookieRoom2();
 allRoomsContent.findCookieRoom3();
 allRoomsContent.findCookieRoom4();
 
-actuallGuestsInfo();
-
-//Podstrona (musi być po findCookieRoom)
+showHome();
+showRooms();
+showTreatments();
+showBookings();
 
 //---dodawanie i odejmowanie osób (Rooms)
 
@@ -149,10 +102,10 @@ allRoomsContent.allRoomsDisablesAndHovers(); //wszelkie hovery, wyłączenia prz
 
 //------------
 
-//Treatments
+//Podstrony Treatments
 
 //------------
-// Przy przaładowaniu strony wczytujemy wartości Treatments do kosza
+// Przy przaładowaniu strony wczytujemy wartości Rooms do kosza
 
 allTreatmentsContent.findCookieTreatment1();
 allTreatmentsContent.findCookieTreatment2();
@@ -164,7 +117,7 @@ allTreatmentsContent.findCookieTreatment7();
 
 //-------------
 
-//---dodawanie i odejmowanie zabiegów (Treatments)
+//---dodawanie i odejmowanie osób (Treatments)
 
 allTreatmentsContent.addTreatment1();
 allTreatmentsContent.addTreatment2();
@@ -184,18 +137,7 @@ allTreatmentsContent.removeTreatment7();
 
 //-------------
 
-//Bookings
-// currentArrivalDepartureDateCookie();
-arrivalClick();
-cancelArrivalClick();
-departureClick();
-cancelDepartureClick();
-// currentArrivalDepartureDateInfo();
-// summaryButton();
-
-//-------------
-
-// Zdarzenia dla podstron wszystkich podstron
+// Zdarzenia dla podstron
 
 $(".text-light").on({
   click: () => {
@@ -203,17 +145,17 @@ $(".text-light").on({
       window.location.href.match(/\/$/) &&
       window.location.href.length - 1 === window.location.origin.length
     ) {
+      // console.log("działa");
+      //(window.location.href.match(/\/{1}$/))
       $("#main-section").empty();
       showHome();
-
-      showRegistrationForm();
-      showLoginForm();
-      registrationLoginHoversOff();
     } else if (window.location.href.match(/\/rooms$/)) {
       $("#main-section").empty();
       showRooms();
 
-      actuallGuestsInfo();
+      // window.location.reload(false);
+
+      // allRoomsContent.addInsideRoomAddId1();
 
       allRoomsContent.roomId1Add();
       allRoomsContent.roomId2Add();
@@ -228,7 +170,6 @@ $(".text-light").on({
       allRoomsContent.allZeroRoomsDisabled(); //wyłączenia przy zerowej liczbie osób w database (w Rooms)
 
       allRoomsContent.allRoomsDisablesAndHovers(); //wszelkie hovery, wyłączenia na przy wczytaniu strony (w Rooms)
-      // loginRemove(); //wylogowanie
     } else if (window.location.href.match(/\/treatments$/)) {
       $("#main-section").empty();
       showTreatments();
@@ -252,19 +193,12 @@ $(".text-light").on({
       allTreatmentsContent.allstateTreatmentsInfo(); //ifnormacje przy zmianie zakładki co dodano co nie (do hoverów i aktywnych, nieaktywnych przycisków)
     } else if (window.location.href.match(/\/bookings$/)) {
       $("#main-section").empty();
-
       showBookings();
-
-      // currentArrivalDepartureDateCookie();
-      arrivalClick();
-      cancelArrivalClick();
-      departureClick();
-      cancelDepartureClick();
-      currentArrivalDepartureDateInfo();
-      summaryButton();
     } else {
       $("#main-section").empty();
+      // return $("#main-section").empty();
     }
+    // console.log($("#main-section"));
   },
 });
 
@@ -305,9 +239,9 @@ $(".text-light").on({
 
 //------------
 
-// console.log(document.cookie);
+console.log(document.cookie);
 
-// console.log(document);
+console.log(document);
 
 // var myInit = {
 //   method: "GET",
@@ -328,14 +262,15 @@ $(".text-light").on({
 // });
 // let data = require("../database.json");
 
-// fetch("local").then((response) => {
-//   console.log("działa");
-//   return response.json();
-// });
-//   .then((answer) => console.log(answer));
-// const jsonInfo = $.getJSON(
-//   "C/:UsersPBDesktop/repo-git/projekty-2020/it-spa-master-clone/database.json"
-// );
+// fetch(database)
+//   .then((response) => {
+//     console.log("działa");
+//     return response.json();
+//   })
+// //   .then((answer) => console.log(answer));
+// // const jsonInfo = $.getJSON(
+// //   "C/:UsersPBDesktop/repo-git/projekty-2020/it-spa-master-clone/database.json"
+// // );
 
 // console.log(database.rooms[0].name);
 
@@ -385,14 +320,14 @@ $(".text-light").on({
 
 // console.log(databaseParse);
 
-// console.log($("#main-section div div.room-id4 .one-room-info").text());
+console.log($("#main-section div div.room-id4 .one-room-info").text());
 
-// fetch("http://localhost:1234/database.json").then((response) => {
-//   console.log(response.url);
-//   console.log(database.rooms[0]);
-// });
+fetch("http://localhost:1234").then((response) => {
+  console.log(response.status);
+  console.log($("#main-section div"));
+});
 
-// console.log(allRoomsContent.roomOneWithChanging);
+console.log(allRoomsContent.roomOneWithChanging);
 
 // $(window).on("click", () => {
 //   if (

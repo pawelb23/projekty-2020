@@ -18,10 +18,6 @@ export const showHome = () => {
 
     $("#main-section").append(showAllHome);
 
-    const registAndLogin =
-      '<div class="registration-and-login"><button id="div-registration" class="hover-registration">Rejestracja</button><button id="div-login" class="hover-login">Logowanie</button></div>';
-
-    $("main").append(registAndLogin);
     // const databaseStringify = JSON.stringify(database);
 
     // const databaseParse = JSON.parse(databaseStringify);

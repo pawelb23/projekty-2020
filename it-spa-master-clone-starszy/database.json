@@ -1,22 +1,11 @@
 {
-  "users": [
-    {
-      "password": "aB123",
-      "login": "Mieciu",
-      "email": "abc@gmail.com"
-    },
-    {
-      "password": "aB12345",
-      "login": "Jaro",
-      "email": "abcd@gmail.com"
-    }
-  ],
+  "users": [],
   "rooms": [
     {
       "id": 1,
       "name": "Pokój unarny",
       "beds": 1,
-      "guests": 1,
+      "guests": 5,
       "price": 170
     },
     {

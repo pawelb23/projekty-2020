@@ -13,11 +13,11 @@ export const showRooms = () => {
 
     $("#main-section").append(showAllRooms);
 
-    // const databaseStringify = JSON.stringify(database);
+    const databaseStringify = JSON.stringify(database);
 
-    // const databaseParse = JSON.parse(databaseStringify);
+    const databaseParse = JSON.parse(databaseStringify);
 
-    // console.log(databaseParse);
+    console.log(databaseParse);
 
     //----------
 
@@ -61,34 +61,24 @@ export const showRooms = () => {
       showOneRoom.append(addMinusRoom);
 
       const buttonRoom = $(
-        `<button class="all-buttons all-add-buttons-hover all-buttons-add-rooms button-add-room${database.rooms[i].id}">Dodaj</button><button class="all-buttons all-buttons-remove-rooms button-remove-room${database.rooms[i].id}" disabled=true>Usuń</button>`
+        `<button class="all-buttons all-add-buttons-hover all-buttons-add-rooms button-add-room${database.rooms[i].id}">Dodaj</button><button class="all-buttons all-buttons-remove-rooms button-remove-room${database.rooms[i].id}">Usuń</button>`
       );
 
       addMinusRoom.append(buttonRoom);
 
-      // $(".all-buttons-remove-rooms").attr("disabled", true);
+      $(".all-buttons-remove-rooms").attr("disabled", true);
 
-      // $(".room-guests-value1").text(allRoomsContent.roomOneWithChanging.guests);
+      $(".room-guests-value1").text(allRoomsContent.roomOneWithChanging.guests);
 
-      // $(".room-guests-value2").text(allRoomsContent.roomTwoWithChanging.guests);
+      $(".room-guests-value2").text(allRoomsContent.roomTwoWithChanging.guests);
 
-      // $(".room-guests-value3").text(
-      //   allRoomsContent.roomThreeWithChanging.guests
-      // );
+      $(".room-guests-value3").text(
+        allRoomsContent.roomThreeWithChanging.guests
+      );
 
-      // $(".room-guests-value4").text(
-      //   allRoomsContent.roomFourWithChanging.guests
-      // );
+      $(".room-guests-value4").text(
+        allRoomsContent.roomFourWithChanging.guests
+      );
     }
   }
-};
-
-export const actuallGuestsInfo = () => {
-  $(".room-guests-value1").text(allRoomsContent.roomOneWithChanging.guests);
-
-  $(".room-guests-value2").text(allRoomsContent.roomTwoWithChanging.guests);
-
-  $(".room-guests-value3").text(allRoomsContent.roomThreeWithChanging.guests);
-
-  $(".room-guests-value4").text(allRoomsContent.roomFourWithChanging.guests);
 };

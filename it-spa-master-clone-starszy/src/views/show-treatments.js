@@ -51,7 +51,7 @@ export const showTreatments = () => {
 
       oneTreatmentInfo.html(`<span class="treatment-key">Nazwa:</span> <span class="treatment-value">${database.treatments[i].name}</span><br>
       <span class="treatment-key">Leczony obszar:</span> <span class="treatment-value">${polishAreaName}</span><br>
-      <span class="treatment-key">Czas:</span> <span class="treatment-value">${database.treatments[i].time} min</span><br>
+      <span class="treatment-key">Czas:</span> <span class="treatment-value">${database.treatments[i].time}</span><br>
       <span class="treatment-key">Cena:</span> <span class="treatment-value">${database.treatments[i].price}</span>`);
 
       const addMinusTreatment = $(

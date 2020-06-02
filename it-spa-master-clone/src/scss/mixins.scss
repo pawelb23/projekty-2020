@@ -70,12 +70,124 @@
 }
 
 //-----------
+
 @mixin buttons-hover {
   background-color: rgba(255, 255, 255, 0.75);
   box-shadow: 5px 5px 5px rgba(255, 255, 255, 0.65);
 }
 
+//-----------
+
 @mixin info-div-settings {
   border: dotted brown 2px;
   padding: 5px;
+}
+
+//------------
+
+@mixin registration-login-information {
+  position: absolute;
+  height: 635px;
+  width: 500px;
+  z-index: 2;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  margin: auto;
+}
+
+@mixin registration-login-form-information {
+  display: flex;
+  height: 635px;
+  width: 500px;
+  padding: 35px;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  margin: auto;
+  border-radius: 10px;
+  box-shadow: 10px 10px 10px;
+  border: 3px solid black;
+  flex-direction: column;
+}
+
+@mixin logo-information-settings {
+  display: inline-block;
+  padding: 5px;
+  margin: 10px;
+  font-size: 25px;
+  height: 50px;
+  width: 125px;
+  color: rgb(37, 25, 25);
+  border: dashed green 3px;
+  background-color: rgba(100, 100, 214, 0.335);
+}
+
+@mixin registration-login-input-div-container {
+  margin-top: 25px;
+  margin-bottom: 25px;
+  font-size: 40px;
+}
+
+@mixin all-inputs-registration-login-settings {
+  width: 100%;
+  padding: 10px;
+  height: 45px;
+  font-size: 25px;
+  border-radius: 5px;
+  border: 2px solid black;
+  font-size: 25px;
+}
+
+@mixin sign-up-sign-in-button {
+  width: 100%;
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 3px 3px 5px;
+}
+
+@mixin registration-login-cancel-button {
+  position: absolute;
+  z-index: 3;
+  right: 15px;
+  text-align: center;
+  width: 70px;
+  height: 30px;
+  margin: 25px;
+  font-size: 15px;
+  background-color: rgba(159, 166, 167, 0.445);
+  border-radius: 15px;
+  border: solid rgba(128, 128, 128, 0.5) 3px;
+  box-shadow: 5px 5px 5px;
+}
+
+@mixin login-registration-summary-buttons-settings {
+  width: 150px;
+  padding: 5px;
+  margin: 10px;
+  border-radius: 25px;
+  background-color: rgb(192, 183, 183);
+  border: solid rgb(90, 89, 89) 5px;
+  box-shadow: 5px 5px 5px black;
+}
+
+@mixin login-and-arrival-departure-error {
+  font-size: 15px;
+  background-color: rgba(255, 255, 255, 0.205);
+  left: 0;
+  right: 0;
+  bottom: 30%;
+  width: 100%;
+}
+
+@mixin submit-arrival-departure-add-cancel {
+  width: 150px;
+  height: 45px;
+  font-size: 25px;
+  border-radius: 5px;
+  border: 2px solid black;
+  font-size: 25px;
 }

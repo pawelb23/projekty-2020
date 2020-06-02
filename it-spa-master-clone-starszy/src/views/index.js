@@ -7,5 +7,3 @@ export * from "./show-bookings";
 export * from "./show-home";
 export * from "./show-rooms";
 export * from "./show-treatments";
-export * from "./registration";
-export * from "./login";

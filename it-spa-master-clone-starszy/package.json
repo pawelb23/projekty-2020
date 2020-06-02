@@ -17,8 +17,6 @@
   },
   "dependencies": {
     "bootstrap": "^4.4.1",
-    "browserify-fs": "^1.0.0",
-    "file-system": "^2.2.2",
     "jquery": "^3.4.1"
   }
 }

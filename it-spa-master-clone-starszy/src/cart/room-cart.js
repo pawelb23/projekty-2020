@@ -34,6 +34,8 @@ const textInfoRoom4 = `Dodano: ${database.rooms[3].name}!!!`;
 
 const cookiesRoomsInfo = JSON.parse(JSON.stringify(document.cookie));
 
+console.log(cookiesRoomsInfo);
+
 const cookiesGusetsInfo = JSON.parse(cookiesRoomsInfo.slice(12));
 
 export const findCookieRoom1 = () => {
@@ -86,14 +88,13 @@ export const findCookieRoom4 = () => {
     ) {
       roomFourWithChanging.guests =
         database.rooms[3].guests - cookiesGusetsInfo[i].guests;
+      console.log("działa");
     } else {
       ("");
     }
   }
 };
 //----------
-
-export const shadowDiv = $(`<div class="shadow-div"></div>`);
 
 // Add
 
@@ -103,7 +104,7 @@ export const roomId1Add = () => {
 
     $("#rooms-container div.room").removeClass("room-hover-shadow");
 
-    const divWall = shadowDiv;
+    const divWall = $(`<div class="shadow-div"</div>`);
 
     $(".text-muted").after(divWall);
 
@@ -130,7 +131,7 @@ export const roomId2Add = () => {
 
     $("#rooms-container div.room").removeClass("room-hover-shadow");
 
-    const divWall = shadowDiv;
+    const divWall = $(`<div class="shadow-div"</div>`);
 
     $(".text-muted").after(divWall);
 
@@ -157,7 +158,7 @@ export const roomId3Add = () => {
 
     $("#rooms-container div.room").removeClass("room-hover-shadow");
 
-    const divWall = shadowDiv;
+    const divWall = $(`<div class="shadow-div"</div>`);
 
     $(".text-muted").after(divWall);
 
@@ -184,7 +185,7 @@ export const roomId4Add = () => {
 
     $("#rooms-container div.room").removeClass("room-hover-shadow");
 
-    const divWall = shadowDiv;
+    const divWall = $(`<div class="shadow-div"</div>`);
 
     $(".text-muted").after(divWall);
 
@@ -221,6 +222,9 @@ const addInsideRoomAddId1 = () => {
 
     $(".div-for-info-rooms").addClass("hidden-border-rooms-in-info");
 
+    // if ($("#info-section").hasClass("info-section-information")) {
+    //   ("");
+    // } else
     if ($(".div-for-info-rooms div").hasClass("room1-cart-info")) {
       const roomOneWithGuestsInfoRemove = JSON.parse(
         JSON.stringify(database.rooms[0])
@@ -296,7 +300,7 @@ const addInsideRoomAddId1 = () => {
 
     cart.add(roomOneWithGuestsInfo);
 
-    // console.log(document.cookie);
+    console.log(document.cookie);
 
     $(".not-empty").remove();
     $(".shadow-div").remove();
@@ -315,6 +319,9 @@ const addInsideRoomAddId2 = () => {
 
     $(".div-for-info-rooms").addClass("hidden-border-rooms-in-info");
 
+    // if ($("#info-section").hasClass("info-section-information")) {
+    //   ("");
+    // } else
     if ($(".div-for-info-rooms div").hasClass("room2-cart-info")) {
       const roomTwoWithGuestsInfoRemove = JSON.parse(
         JSON.stringify(database.rooms[1])
@@ -390,7 +397,7 @@ const addInsideRoomAddId2 = () => {
 
     cart.add(roomTwoWithGuestsInfo);
 
-    // console.log(document.cookie);
+    console.log(document.cookie);
 
     $(".not-empty").remove();
     $(".shadow-div").remove();
@@ -409,7 +416,12 @@ const addInsideRoomAddId3 = () => {
 
     $(".div-for-info-rooms").addClass("hidden-border-rooms-in-info");
 
-    if ($(".div-for-info-rooms div").hasClass("room3-cart-info")) {
+    // if ($("#info-section").hasClass("info-section-information")) {
+    //   ("");
+    // } else
+    if ($("#info-section").hasClass("info-section-information")) {
+      ("");
+    } else if ($(".div-for-info-rooms div").hasClass("room3-cart-info")) {
       const roomThreeWithGuestsInfoRemove = JSON.parse(
         JSON.stringify(database.rooms[2])
       );
@@ -484,7 +496,7 @@ const addInsideRoomAddId3 = () => {
 
     cart.add(roomThreeWithGuestsInfo);
 
-    // console.log(document.cookie);
+    console.log(document.cookie);
 
     $(".not-empty").remove();
     $(".shadow-div").remove();
@@ -503,7 +515,12 @@ const addInsideRoomAddId4 = () => {
 
     $(".div-for-info-rooms").addClass("hidden-border-rooms-in-info");
 
-    if ($(".div-for-info-rooms div").hasClass("room4-cart-info")) {
+    // if ($("#info-section").hasClass("info-section-information")) {
+    //   ("");
+    // } else
+    if ($("#info-section").hasClass("info-section-information")) {
+      ("");
+    } else if ($(".div-for-info-rooms div").hasClass("room4-cart-info")) {
       const roomFourWithGuestsInfoRemove = JSON.parse(
         JSON.stringify(database.rooms[3])
       );
@@ -578,7 +595,7 @@ const addInsideRoomAddId4 = () => {
 
     cart.add(roomFourWithGuestsInfo);
 
-    // console.log(document.cookie);
+    console.log(document.cookie);
 
     $(".not-empty").remove();
     $(".shadow-div").remove();
@@ -592,7 +609,6 @@ const addInsideRoomAddId4 = () => {
 const cancelInsideRoomAddId1 = () => {
   $(".button-remove-id1").click((e) => {
     e.stopPropagation();
-
     $("#rooms-container div.room").addClass("room-hover-shadow");
     $(".not-empty").remove();
     $(".shadow-div").remove();
@@ -634,7 +650,7 @@ const cancelInsideRoomAddId1 = () => {
 const cancelInsideRoomAddId2 = () => {
   $(".button-remove-id2").click((e) => {
     e.stopPropagation();
-
+    // console.log($(".div-for-info2").html().length);
     $("#rooms-container div.room").addClass("room-hover-shadow");
     $(".not-empty").remove();
     $(".shadow-div").remove();
@@ -666,6 +682,11 @@ const cancelInsideRoomAddId2 = () => {
         $(`.button-add-room${i + 1}`).addClass("all-add-buttons-hover");
         $(`.button-remove-room${i + 1}`).removeAttr("disabled", true);
         $(`.button-remove-room${i + 1}`).addClass("all-remove-buttons-hover");
+        // } else if (
+        //   $(`.room-guests-value${i + 1}`).text() === 0 &&
+        //   $(`.room-guests-value${i + 1}`).text() !== database.rooms[i].guests
+        // ) {
+        //   console.log("zero");
       } else {
         ("");
       }
@@ -676,7 +697,7 @@ const cancelInsideRoomAddId2 = () => {
 const cancelInsideRoomAddId3 = () => {
   $(".button-remove-id3").click((e) => {
     e.stopPropagation();
-
+    // console.log($(".div-for-info3").html().length);
     $("#rooms-container div.room").addClass("room-hover-shadow");
     $(".not-empty").remove();
     $(".shadow-div").remove();
@@ -708,6 +729,11 @@ const cancelInsideRoomAddId3 = () => {
         $(`.button-add-room${i + 1}`).addClass("all-add-buttons-hover");
         $(`.button-remove-room${i + 1}`).removeAttr("disabled", true);
         $(`.button-remove-room${i + 1}`).addClass("all-remove-buttons-hover");
+        // } else if (
+        //   $(`.room-guests-value${i + 1}`).text() === 0 &&
+        //   $(`.room-guests-value${i + 1}`).text() !== database.rooms[i].guests
+        // ) {
+        //   console.log("zero");
       } else {
         ("");
       }
@@ -718,7 +744,6 @@ const cancelInsideRoomAddId3 = () => {
 const cancelInsideRoomAddId4 = () => {
   $(".button-remove-id4").click((e) => {
     e.stopPropagation();
-
     $("#rooms-container div.room").addClass("room-hover-shadow");
     $(".not-empty").remove();
     $(".shadow-div").remove();
@@ -750,6 +775,11 @@ const cancelInsideRoomAddId4 = () => {
         $(`.button-add-room${i + 1}`).addClass("all-add-buttons-hover");
         $(`.button-remove-room${i + 1}`).removeAttr("disabled", true);
         $(`.button-remove-room${i + 1}`).addClass("all-remove-buttons-hover");
+        // } else if (
+        //   $(`.room-guests-value${i + 1}`).text() === 0 &&
+        //   $(`.room-guests-value${i + 1}`).text() !== database.rooms[i].guests
+        // ) {
+        //   console.log("zero");
       } else {
         ("");
       }
@@ -1103,3 +1133,102 @@ export const room4ReloadInfo = () => {
     }
   }
 };
+
+// cookiesGusetsInfo[i].id == 1 && cookiesGusetsInfo[i].hasOwnProperty("guests");
+
+// export const allReloadInfo = () => {
+//   for (let i = 0; database.rooms.length > i; i++) {
+//     if ($(`.room-guests-value${i + 1}`).text() == database.rooms[i].guests) {
+//       console.log("wynik");
+//       ("");
+//     } else if (
+//       $(`.room-guests-value${i + 1}`).text() !== database.rooms[i].guests
+//     ) {
+//       console.log($(`.room-guests-value${i + 1}`).text());
+//       const divAllInfo = $(`<div class="room${i + 1}-cart-info"></div>`);
+//       $(".div-for-info-rooms").append(divAllInfo);
+
+//       $("#info-section").addClass("main-info-in-section");
+
+//       $(".div-for-all-info").addClass("hidden-class-in-div");
+
+//       $(".room1-cart-info").text("Dodano pokój unarny!!!");
+//       $(".room2-cart-info").text("Dodano pokój binarny!!!");
+//       $(".room3-cart-info").text("Dodano pokój trójkowy!!!");
+//       $(".room4-cart-info").text("Dodano pokój czwórkowy!!!");
+
+//       if ($("#info-section h6").hasClass("info-main-heading")) {
+//         ("");
+//       } else {
+//         const infoHeading = $(
+//           '<h6 class="info-main-heading">Obecnie w koszu!!!</h6>'
+//         );
+//         $(".div-for-all-info").before(infoHeading);
+//         console.log("działaaaaaaaaaaaaaaaaaaaaaa");
+//       }
+//     }
+//   }
+// };
+// if (
+//   0
+//   // cookiesGusetsInfo[i].id == i + 1 &&
+//   // cookiesGusetsInfo[i].hasOwnProperty("guests")
+// ) {
+//   console.log(cookiesGusetsInfo[i].id);
+//   $("room1-cart-info").text("Dodano pokój unarny!!!");
+//   $("room2-cart-info").text("Dodano pokój binarny!!!");
+//   $("room3-cart-info").text("Dodano pokój trójkowy!!!");
+//   $("room4-cart-info").text("Dodano pokój czwórkowy!!!");
+// }
+
+//    if (
+//     $("#info-section").hasClass("main-info-in-section") &&
+//     $("#info-section h6").hasClass("info-main-heading") &&
+//     $("#info-section div").hasClass("hidden-class-in-div")
+//   ) {
+//     if ($("div-for-info-rooms div").hasClass("room1-cart-info")) {
+//       ("");
+//     } else {
+//       const divAllInfo = $('<div class="room1-cart-info"></div>');
+//       $(".div-for-info-rooms").append(divAllInfo);
+//       $(".room4-cart-info").text("Dodano pokój czwórkowy!!!");
+//     }
+//   } else {
+//     const divAllInfo = $('<div class="room1-cart-info"></div>');
+//     $(".div-for-info-rooms").append(divAllInfo);
+
+//     $("#info-section").addClass("main-info-in-section");
+
+//     const infoHeading = $(
+//       '<h6 class="info-main-heading">Obecnie w koszu!!!</h6>'
+//     );
+
+//     $(".div-for-all-info").addClass("hidden-class-in-div");
+
+//     $(".div-for-all-info").before(infoHeading);
+
+//     $(".room4-cart-info").text("Dodano pokój czwórkowy!!!");
+//   }
+// }
+// $(".room4-cart-info").text("Dodano pokój czwórkowy!!!");
+
+// else if (0) {
+//   let guestsNumber2Remove =
+//     database.rooms[1].guests - roomTwoWithChanging.guests;
+
+//   roomTwoWithGuestsInfoRemove.guests = guestsNumber2Remove;
+//   cart.remove(roomTwoWithGuestsInfoRemove);
+// } else {
+//   const divAllInfo = $('<div class="room1-cart-info"></div>');
+//   $(".div-for-info-rooms").append(divAllInfo);
+
+//     $("#info-section").addClass("main-info-in-section");
+
+//     const infoHeading = $(
+//       '<h6 class="info-main-heading">Obecnie w koszu!!!</h6>'
+//     );
+
+//     $(".div-for-all-info").addClass("hidden-class-in-div");
+
+//     $(".div-for-all-info").before(infoHeading);
+//   }
