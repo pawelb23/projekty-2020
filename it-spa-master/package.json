@@ -1,24 +1,26 @@
 {
-  "name": "it-spa",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "start:db": "json-server --watch database.json",
-    "start:app": "parcel ./index.html --open"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "devDependencies": {
-    "json-server": "^0.15.1",
-    "node-sass": "^4.14.1",
-    "parcel-bundler": "^1.12.4"
-  },
-  "dependencies": {
-    "bootstrap": "^4.5.0",
-    "browserify-fs": "^1.0.0",
-    "file-system": "^2.2.2",
-    "jquery": "^3.5.1"
-  }
+    "name": "it-spa-master",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "start:db": "json-server --watch database.json",
+        "start:app": "parcel ./index.html --open"
+    },
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+        "@parcel/transformer-sass": "^2.7.0",
+        "bootstrap": "^5.2.2",
+        "browserify": "^17.0.0",
+        "core-js": "^3.25.5",
+        "file-system": "^2.2.2",
+        "jquery": "^3.6.1",
+        "json-server": "^0.17.0",
+        "node-gyp": "^9.3.0",
+        "parcel": "^2.7.0",
+        "parcel-bundler": "^1.12.5",
+        "sass": "^1.55.0"
+    }
 }
